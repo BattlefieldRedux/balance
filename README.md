@@ -1,6 +1,6 @@
 ### Balance script
 
--Little tool i have made for PRBF2 admins
+#####Little tool i have made for PRBF2 admins
 
 Usage:
 

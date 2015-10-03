@@ -1,6 +1,7 @@
 ### Balance script
 
 #####Little tool i have made for PRBF2 admins
+Will keep all human players on same side.
 
 Usage:
 

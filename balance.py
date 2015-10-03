@@ -1,6 +1,8 @@
-# change teams to one that required
-# BLUEFOR = 2, OPFOR = 1
-HUMANTEAM = 2 
+# importing standart bf2 packages
+import bf2
+import host
+# importing config
+import config as C
 
 # ------------------------------------------------------------------------
 # Init
@@ -23,9 +25,20 @@ def onGameStatusChanged(status):
 
 
 def onPlayerChangeTeams(player, humanHasSpawned): # player changed team
-    
-    if player is None or player.isValid() is False or player.isAIPlayer(): # some checks...
+
+    # some checks before checking for switch
+    if player is None:
         return
 
-    if player.getTeam() != HUMANTEAM: # checking if player changed team to wrong one
-        player.setTeam(HUMANTEAM) # setting team to proper one
+    if player.isValid() is False:
+        return
+
+    if player.isAIPlayer():
+        return
+
+    if player.getName() in C.EXCLUDES:
+        return
+
+    # checking player team
+    if player.getTeam() != C.HUMANTEAM:
+        player.setTeam(C.HUMANTEAM) # setting team to proper one
